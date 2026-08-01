@@ -1,8 +1,30 @@
 aid: seedlegals
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/seedlegals.png
 name: SeedLegals
-description: 'SeedLegals is a company surfaced as a portfolio company of index-ventures, seedcamp and
-  added to the API Evangelist network as a stub for enrichment. Sector: business-applications. This profile
-  is a lead awaiting the enrichment pipeline.'
+description: >-
+  SeedLegals is a legal-technology platform that helps startups, founders and
+  investors handle their company legals end to end — from incorporation and cap
+  table management through fundraising (SEIS/EIS, SAFEs, priced rounds, agile
+  funding top-ups), share options and team agreements, to R&D tax credit claims
+  and ongoing compliance. Trusted by 60,000+ startups and investors across the
+  UK, France and the US, it replaces traditional law-firm workflows with guided,
+  self-serve document generation plus expert support. SeedLegals does not
+  publish a public REST/OpenAPI developer program, but it operates a hosted,
+  OAuth-protected Model Context Protocol (MCP) server at api.seedlegals.com/mcp
+  and a FusionAuth-based OpenID Connect identity provider, both discoverable via
+  standard OAuth/OIDC well-known metadata.
 url: https://raw.githubusercontent.com/api-evangelist/seedlegals/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,10 +35,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Business Applications
+- Legal Tech
+- Startups
+- Fundraising
+- Cap Table
+- Equity
+- Compliance
+- MCP
+- OpenID Connect
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,4 +55,38 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://seedlegals.com
+  url: https://seedlegals.com
+- type: Pricing
+  url: https://seedlegals.com/pricing/
+- type: Blog
+  url: https://seedlegals.com/resources/
+- type: Support
+  url: https://seedlegals.com/us/talk-to-us/
+- type: TermsOfService
+  url: https://seedlegals.com/us/terms-of-service/
+- type: PrivacyPolicy
+  url: https://seedlegals.com/us/privacy-policy/
+- type: SignUp
+  url: https://app.seedlegals.com/signup
+- type: Login
+  url: https://app.seedlegals.com/login
+- type: MCPServer
+  name: SeedLegals MCP Server
+  url: mcp/seedlegals-mcp.yml
+- type: LLMsTxt
+  url: llms/seedlegals-llms.txt
+- type: WellKnown
+  url: well-known/seedlegals-well-known.yml
+- type: Authentication
+  url: authentication/seedlegals-authentication.yml
+- type: OAuthScopes
+  url: scopes/seedlegals-scopes.yml
+- type: Conformance
+  url: conformance/seedlegals-conformance.yml
+- type: DomainSecurity
+  url: security/seedlegals-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

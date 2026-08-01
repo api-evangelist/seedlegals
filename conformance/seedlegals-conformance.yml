@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Published OAuth/OIDC discovery documents on api.seedlegals.com and
+  auth.seedlegals.com
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    RFC 8414 Authorization Server Metadata published at
+    /.well-known/oauth-authorization-server (authorization_code + refresh_token
+    grants).
+- id: oidc
+  conforms: true
+  evidence: >-
+    OpenID Connect discovery document published at
+    auth.seedlegals.com/.well-known/openid-configuration (FusionAuth).
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256 on both authorization servers.
+- id: rfc9728-protected-resource-metadata
+  conforms: true
+  evidence: >-
+    RFC 9728 OAuth Protected Resource Metadata published at
+    /.well-known/oauth-protected-resource for the MCP resource.
+- id: oauth2-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint advertised (RFC 7591) on the MCP authorization server.
+- id: mcp
+  conforms: true
+  evidence: Hosted Model Context Protocol server at https://api.seedlegals.com/mcp.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public REST API or error contract documented.
+- id: fapi
+  conforms: false

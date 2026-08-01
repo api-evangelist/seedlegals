@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://api.seedlegals.com/.well-known/oauth-authorization-server
+server:
+  name: seedlegals
+  transport: http
+  url: https://api.seedlegals.com/mcp
+  description: >-
+    Hosted Model Context Protocol server operated by SeedLegals at
+    https://api.seedlegals.com/mcp. Discovered via RFC 8414 OAuth Authorization
+    Server Metadata and RFC 9728 OAuth Protected Resource Metadata published on
+    the api.seedlegals.com host. The endpoint requires OAuth 2.0 bearer
+    authentication (unauthenticated tools/list returns HTTP 401), so the tool
+    surface could not be enumerated without a SeedLegals account.
+authorization:
+  type: oauth2
+  authorization_server: https://api.seedlegals.com/mcp
+  authorization_endpoint: https://api.seedlegals.com/mcp/oauth2/authorize
+  token_endpoint: https://api.seedlegals.com/mcp/oauth2/token
+  userinfo_endpoint: https://api.seedlegals.com/mcp/oauth2/userinfo
+  registration_endpoint: https://api.seedlegals.com/mcp/oauth2/register
+  jwks_uri: https://api.seedlegals.com/mcp/.well-known/jwks.json
+  grant_types_supported: [authorization_code, refresh_token]
+  code_challenge_methods_supported: [S256]
+  token_endpoint_auth_methods_supported: [none]
+  dynamic_client_registration: true
+  scopes_supported: [openid, email, read, write]
+  bearer_methods_supported: [header]
+resource_metadata: https://api.seedlegals.com/.well-known/oauth-protected-resource
+tools: []
+tools_note: >-
+  Tool list not enumerated — the MCP endpoint is OAuth-gated and returns 401 to
+  unauthenticated JSON-RPC initialize/tools-list calls. No tools were fabricated.

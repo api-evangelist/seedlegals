@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of SeedLegals hosts
+hosts:
+- host: https://api.seedlegals.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: seedlegals-api-oauth-authorization-server.json
+    note: OAuth 2.0 Authorization Server Metadata (RFC 8414) for the hosted MCP server at /mcp
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: seedlegals-oauth-protected-resource.json
+    note: OAuth 2.0 Protected Resource Metadata (RFC 9728) for the MCP resource
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: returns the app login HTML page, not a JSON OIDC document; not captured
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://auth.seedlegals.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: seedlegals-auth-openid-configuration.json
+    note: OpenID Connect discovery document (FusionAuth identity provider)
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://seedlegals.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    file: ../llms/seedlegals-llms.txt
+    note: published Yoast-generated llms.txt

@@ -1,0 +1,48 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://auth.seedlegals.com/.well-known/openid-configuration and
+  https://api.seedlegals.com/.well-known/oauth-authorization-server
+docs: https://api.seedlegals.com/mcp
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode, refreshToken]
+  identity_provider: FusionAuth
+  notes: >-
+    SeedLegals has no publicly documented REST API; authentication is only
+    observable through published OAuth/OIDC discovery documents. The user-facing
+    application authenticates against a FusionAuth OpenID Connect provider at
+    auth.seedlegals.com. The agent-facing MCP server at api.seedlegals.com/mcp
+    exposes its own OAuth 2.0 authorization server (PKCE + dynamic client
+    registration).
+schemes:
+- name: SeedLegals MCP OAuth2
+  type: oauth2
+  source: https://api.seedlegals.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.seedlegals.com/mcp/oauth2/authorize
+    tokenUrl: https://api.seedlegals.com/mcp/oauth2/token
+    refreshUrl: https://api.seedlegals.com/mcp/oauth2/token
+    pkce: S256
+    scopes: [openid, email, read, write]
+  dynamic_client_registration: https://api.seedlegals.com/mcp/oauth2/register
+- name: SeedLegals Identity (FusionAuth OIDC)
+  type: openIdConnect
+  source: https://auth.seedlegals.com/.well-known/openid-configuration
+  issuer: https://auth.seedlegals.com/6586e0bc-1d4b-ee88-2f82-7cbaa0189308
+  openIdConnectUrl: https://auth.seedlegals.com/.well-known/openid-configuration
+  authorizationUrl: https://auth.seedlegals.com/oauth2/authorize
+  tokenUrl: https://auth.seedlegals.com/oauth2/token
+  userinfoUrl: https://auth.seedlegals.com/oauth2/userinfo
+  end_session_endpoint: https://auth.seedlegals.com/oauth2/logout
+  grant_types_supported:
+  - authorization_code
+  - password
+  - implicit
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:device_code
+  - client_credentials
+  code_challenge_methods_supported: [S256]
+  dpop_supported: true
+  scopes: [openid, offline_access, email, phone, profile]
