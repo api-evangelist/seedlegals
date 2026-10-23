@@ -5,7 +5,7 @@
       "source": "https://seedlegals.com/feed/",
       "feed_url": "https://seedlegals.com/feed/",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -16,6 +16,13 @@
       "method": "discovered"
     },
     {
+      "source": "https://seedlegals.com/resources/feed/",
+      "feed_url": "https://seedlegals.com/resources/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://seedlegals.com/pricing/feed/",
       "feed_url": "https://seedlegals.com/pricing/feed/",
       "title": "",
@@ -23,6 +30,6 @@
       "method": "feed"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 11,
+  "fetched": "2026-10-17T14:53:57Z"
 }
